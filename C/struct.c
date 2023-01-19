@@ -39,6 +39,8 @@ int main(void)
 	printf("sizeof(double) = %ld\n",sizeof(double));
 
 	printf("myStuff.b = %c\n",myStuff.b);
+	
+	
 	int i = 305;
 	printf("myStuff.c[305] = %f\n",myStuff.c[i]);
 	myStuff.c[400] = 30;
@@ -47,4 +49,7 @@ int main(void)
 
 	// parameter passing
 	processStuff(&myStuff);
+
+	Person scot = {"Scot",11};
+	printf("scot's name == %s\n",scot.name);
 }

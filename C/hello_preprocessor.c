@@ -32,5 +32,7 @@ int main( int argc, char * argv[] )
 {
     printf("Hello World!\n");
 	printf("Architecture: %s\n",NAME);
+	float a = TORADIANS(3);
+	float b = PI;
     return 0;
 }

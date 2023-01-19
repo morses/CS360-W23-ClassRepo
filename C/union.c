@@ -23,6 +23,9 @@ void printMulti( union Multi u )
 /* Entry function. */
 int main(void)
 {
+	int b = 4;
+	printf("b = %d\n",b);
+
 	// Create (allocate memory) for a union Multi
 	union Multi data;
 	printf("\nsizeof(union Multi) = %ld\n\n",sizeof(union Multi));
