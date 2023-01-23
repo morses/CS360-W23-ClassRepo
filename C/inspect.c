@@ -51,6 +51,7 @@ int main(int argc, char * argv[])
     printf("\t &max:             %p\n",&max);
     printf("\t &initialSize:     %p\n",&initialSize);
     printf("\t &welcomeString:   %p\n",&welcomeString);
+    printf("\t welcomeString:    %p\n",welcomeString);
 
     /* .bss    (uninitialized data) */
     printf(".bss\n");
