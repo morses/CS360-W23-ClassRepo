@@ -1,6 +1,7 @@
 #include "gps.h"
 #include <string.h>
 #include <stdlib.h>
+#include <math.h>
 
 /* Prototypes */
 bool parse_RMC(struct gps *);
@@ -69,6 +70,7 @@ bool parse_RMC(struct gps * obj)
     bool parse_ok = true;
     int i = 1;
     char * token = strtok(NULL, ",");
+    float val,deg;
     while (token != NULL) 
     {
         switch(i)
@@ -87,7 +89,9 @@ bool parse_RMC(struct gps * obj)
                 }
                 break;
             case 3:     // latitude
-                obj->latitude = (float)atof(token)/100.0;     // outputs 0 if parse fails
+                val = (float)atof(token);     // outputs 0 if parse fails
+                deg = floorf(val/100.0f);
+                obj->latitude = deg + (val-100.0f*deg)/60.0f;     
                 break;
             case 4:     // N or S
                 if (strcmp(token, "S") == 0) 
@@ -96,7 +100,9 @@ bool parse_RMC(struct gps * obj)
                 }
                 break;
             case 5:     // longitude
-                obj->longitude = (float)atof(token)/100.0;
+                val = (float)atof(token);     // outputs 0 if parse fails
+                deg = floorf(val/100.0f);
+                obj->longitude = deg + (val-100.0f*deg)/60.0f;
                 break;
             case 6:     // W or E
                 if (strcmp(token, "W") == 0) 

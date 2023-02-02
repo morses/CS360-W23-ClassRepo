@@ -5,7 +5,9 @@
 #include "gps.h"
 #include "arraylist.h"
 
-// gcc -std=c99 gps.c arraylist.c gps2svg.c -o gps2svg.out
+// Update: now needs the math library
+// gcc -std=c99 gps.c arraylist.c gps2svg.c -o gps2svg.out -lm
+// ./gps2svg.out data/example.dat output/example.svg
 
 int main(int argc, char * argv[]) 
 {
