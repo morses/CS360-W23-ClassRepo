@@ -65,7 +65,16 @@ int main(int argc, char * argv[])
     FILE * fout = fopen(argv[2], "w");
     if(!fout)
 	{
-		fprintf(stderr, "Can't open file for writing: %s", argv[1]);
+		fprintf(stderr, "Can't open file for writing: %s\n", argv[2]);
+        // clean up
+        for(unsigned int i = 0; i < arraylist_size(list); i++)
+        {
+            gps_destroy(arraylist_get(list,i));
+        }
+
+        arraylist_destroy(list);
+        fclose(fin);
+        exit(EXIT_FAILURE);
 	}
 
     // Write the SVG file header
@@ -101,5 +110,6 @@ int main(int argc, char * argv[])
 
     arraylist_destroy(list);
     fclose(fin);
+    fclose(fout);
     return 0;
 }
