@@ -34,3 +34,16 @@ countUpper' [] = 0
 countUpper' (x:xs) = if isUpper x 
     then 1 + countUpper' xs 
     else 0 + countUpper' xs
+
+foo x y = 100*(x + y/2)
+
+foo2 = foo 4
+
+-- using explicit recursion
+p2 :: a -> [a] -> [a]
+p2 x []     = []
+p2 x [y]    = [y]
+p2 x (y:ys) = y:x:p2 x ys
+
+
+--foldr (\x acc -> acc + x) 0 [1..10]
