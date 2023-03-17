@@ -47,3 +47,6 @@ p2 x (y:ys) = y:x:p2 x ys
 
 
 --foldr (\x acc -> acc + x) 0 [1..10]
+
+-- ["abc","hello","forget","world"] -> [3,5,6,5]
+p3 = foldr (\x acc -> length x:acc) [] ["abc","hello","forget","world"]
